@@ -1,0 +1,84 @@
+<div class="row ">
+    <div class="col-md-6 col-md-offset-3 panel panel-default">
+        <div class="page-header">
+            <h2>Travel Booking Form</h2>
+        </div>
+        <tabset justified="true" class="col-md-12">
+            <!--First form page-->
+            <tab heading="STEP 1" active="tabs[0].active">
+                <br>
+                <form name="stepOne">
+                    <div class="form-group has-feedback">
+                        <label class="control-label">First Name</label>
+                        <i class="glyphicon glyphicon-user form-control-feedback"></i>
+                        <input type="text" class="form-control" placeholder="First name" ng-model="user.firstName" ng-pattern="/^[a-zA-Z]*$/" required>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <label>Last Name</label>
+                        <i class="glyphicon glyphicon-user form-control-feedback"></i>
+                        <input type="text" class="form-control" placeholder="Last name" ng-model="user.lastName" ng-pattern="/^[a-zA-Z]*$/" required>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <label>Email</label>
+                        <i class="glyphicon glyphicon-envelope form-control-feedback"></i>
+                        <input type="email" class="form-control" placeholder="Email address" ng-model="user.email" required>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <label>Phone</label>
+                        <i class="glyphicon glyphicon-earphone form-control-feedback"></i>
+                        <input type="text" class="form-control" placeholder="Phone number" ng-model="user.phone" minlength="10" required>
+                    </div>
+                </form>
+                <div>
+                    <button class="btn btn-primary" ng-disabled="stepOne.$invalid" ng-click="next(1)">NEXT</button>
+                </div>
+                <br>
+            </tab>
+            <!-- Second form page -->
+            <tab heading="STEP 2" active="tabs[1].active" disable="stepOne.$invalid">
+                <br>
+                <form name="stepTwo">
+                    <div class="form-group">
+                        <label>Location</label>
+                        <select class="form-control" ng-model="user.location" required>
+                            <option value="Boston">Boston</option>
+                            <option value="Chicago">Chicago</option>
+                            <option value="San Francisco">San Francisco</option>
+                            <option value="New York">New York</option>
+                        </select>
+                    </div>
+                    <h4>Date Depart</h4>
+                    <div class="input-group">
+                        <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="user.departDate" is-open="departStatus.open" min-date="currentDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" ng-change="clearDate()" />
+                        <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" ng-click="openDepart($event)">
+                        <i class="glyphicon glyphicon-calendar"></i>
+                    </button>
+                    </span>
+                    </div>
+                    <h4>Date Return</h4>
+                    <div class="input-group">
+                        <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="user.returnDate" is-open="returnStatus.open" min-date="user.departDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+                        <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" ng-click="openReturn($event)">
+                        <i class="glyphicon glyphicon-calendar"></i>
+                    </button>
+                    </span>
+                    </div>
+                    <br>
+                    <div>
+                        <button class="btn btn-primary" ng-disabled="stepTwo.$invalid" ng-click="next(2)">NEXT</button>
+                    </div>
+                    <br>
+                </form>
+            </tab>
+            <!-- Third form page -->
+            <tab heading="STEP 3" active="tabs[2].active" disable="stepOne.$invalid || stepTwo.$invalid">
+                <br>
+                <div class="well well-lg">
+                    <a ng-href="mailto:{{user.email}}" target="_blank">{{user.firstName + ' ' + user.lastName}}({{user.phone}})</a> will depart for {{user.location}} on {{user.departDate | date}} and return on {{user.returnDate | date}}
+                </div>
+            </tab>
+        </tabset>
+    </div>
+</div>
