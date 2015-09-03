@@ -2,3 +2,11 @@ body {
 	padding-top: 20px;
 	background-color: #D7D7D7;
 }
+.has-feedback-left input.form-control {
+    padding-left: 34px; 
+}
+
+.has-feedback-left .form-control-feedback {
+    left: 0; 
+}
+
