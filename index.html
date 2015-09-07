@@ -8,16 +8,18 @@
     <link rel="stylesheet" href="styles/main.css">
 </head>
 
-<body ng-app="travelBooking">
+<body ng-app="travelBooking" class="tb-background-image" style="background-image:url({{colors}})">
     <div class="container">
         <div ui-view></div>
     </div>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="scripts/app.js"></script>
     <script src="scripts/controllers/mainCtrl.js"></script>
+    <script src="scripts/controllers/services/getImageService.js"></script>
 </body>
 
 </html>

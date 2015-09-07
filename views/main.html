@@ -35,7 +35,7 @@
                 <br>
             </tab>
             <!-- Second form page -->
-            <tab heading="STEP 2" active="tabs[1].active" disable="stepOne.$invalid">
+            <tab heading="STEP 2" active="tabs[1].active" disabled="stepOne.$invalid">
                 <br>
                 <form name="stepTwo">
                     <div class="form-group">
@@ -48,7 +48,7 @@
                         </select>
                     </div>
                     <h4>Date Depart</h4>
-                    <div class="input-group">
+                    <div class="depart-popup input-group">
                         <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="user.departDate" is-open="departStatus.open" min-date="currentDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" ng-change="clearDate()" />
                         <span class="input-group-btn">
                     <button type="button" class="btn btn-default" ng-click="openDepart($event)">
@@ -57,7 +57,7 @@
                     </span>
                     </div>
                     <h4>Date Return</h4>
-                    <div class="input-group">
+                    <div class="return-popup input-group">
                         <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="user.returnDate" is-open="returnStatus.open" min-date="user.departDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
                         <span class="input-group-btn">
                     <button type="button" class="btn btn-default" ng-click="openReturn($event)">

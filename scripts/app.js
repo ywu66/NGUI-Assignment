@@ -2,7 +2,8 @@
 /* Module for travelBooking app*/
 angular.module('travelBooking', [
         'ui.router',
-        'ui.bootstrap'
+        'ui.bootstrap',
+        'ngResource'
     ])
     .config(function($stateProvider, $urlRouterProvider) {
         $urlRouterProvider.otherwise('/main');

@@ -1,6 +1,9 @@
 body {
-	padding-top: 20px;
-	background-color: #D7D7D7;
+	padding-top: 15px;
+	/*background-color: #D7D7D7;*/
+}
+.panel{
+	background-color: rgba(255,255,255,0.8);
 }
 .has-feedback-left input.form-control {
     padding-left: 34px; 
@@ -10,3 +13,31 @@ body {
     left: 0; 
 }
 
+.depart-popup {
+  position: relative;
+}
+.depart-popup .dropdown-menu {
+	position: absolute;
+   left: auto !important;
+   right: 120px;
+   top: -188px !important;
+ }
+
+.return-popup {
+  position: relative;
+}
+.return-popup .dropdown-menu {
+	position: absolute;
+   left: auto !important;
+   right: 120px;
+   top: -260px !important;
+ }
+
+ .tb-background-image {
+ 	position: fixed;
+ 	background-size: cover;
+ 	min-width: 100%;
+ 	min-height: 100%;
+ 	widows: auto;
+ 	height:auto;
+ }
